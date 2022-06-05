@@ -16,7 +16,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">\
+    @stack('style')
 </head>
 <body>
     <div id="app">
@@ -81,5 +82,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     @include('sweetalert::alert')
+    @stack('script')
 </body>
 </html>

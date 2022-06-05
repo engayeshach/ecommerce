@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="{{asset('front/css/ignore_in_wp.css')}}"/>
         <link rel="stylesheet" href="{{asset('front/css/theme.css')}}"/>
         <link rel="stylesheet" href="{{asset('front/css/responsive.css')}}"/>
+        @stack('style')
         <!-- End Include All CSS -->
 
         <!-- Favicon Icon -->
@@ -252,5 +253,6 @@
 
         <script src="{{asset('front/js/theme.js')}}"></script>
         @include('sweetalert::alert')
+        @method('script')
     </body>
 </html>

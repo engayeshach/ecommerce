@@ -24,5 +24,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // admin routes
 Route::get('backend/index', [App\Http\Controllers\DashboardController::class, 'dashboard'])->name('backend.index')->middleware(['auth', 'isAdmin']);
-Route::get('category/create', [App\Http\Controllers\DashboardController::class, 'create'])->name('category.create');
-Route::post('category/store', [App\Http\Controllers\DashboardController::class, 'store'])->name('category.store');
+Route::get('category/create',[App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
+Route::get('categories',[App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
+Route::get('category/edit{category}',[App\Http\Controllers\CategoryController::class, 'edit'])->name('category.edit');
+Route::post('category/update',[App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
+Route::get('category/delete{category}',[App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.destroy');
+Route::post('category/store',[App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
