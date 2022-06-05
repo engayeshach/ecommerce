@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="{{asset('back/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('back/plugins/summernote/summernote-bs4.min.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   @stack('style')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -101,12 +102,15 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
+        <a class="nav-link logoutlink">
+            <i class="fa-solid fa-right-from-bracket"></i>
         </a>
       </li>
     </ul>
   </nav>
+  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+    @csrf
+</form>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -194,5 +198,10 @@
 {{-- <script src="{{asset('back/dist/js/pages/dashboard.js')}}"></script> --}}
 @include('sweetalert::alert')
 @stack('script')
+<script>
+    $('.logoutlink').click(() => {
+        $('#logout-form').submit();
+    });
+</script>
 </body>
 </html>
