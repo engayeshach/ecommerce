@@ -24,6 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // admin routes
 Route::middleware('auth')->group(function(){
+    // categories routes
     Route::get('backend/index', [App\Http\Controllers\DashboardController::class, 'dashboard'])->name('backend.index')->middleware(['auth', 'isAdmin']);
     Route::get('categories',[App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
         Route::prefix('category')->group(function(){
@@ -32,6 +33,15 @@ Route::middleware('auth')->group(function(){
             Route::post('category/update',[App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
             Route::get('category/delete{category}',[App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.destroy');
             Route::post('category/store',[App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
+        });
+        // product routes
+        Route::get('products', [App\Http\Controllers\ProductController::class, 'index'])->name('product.index');
+        Route::prefix('product')->group(function(){
+            Route::get('product/create', [App\Http\Controllers\ProductController::class, 'create'])->name('product.create');
+            Route::post('product/store', [App\Http\Controllers\ProductController::class, 'store'])->name('product.store');
+            Route::get('product/edit{product}', [App\Http\Controllers\ProductController::class, 'edit'])->name('product.edit');
+            Route::post('product/update', [App\Http\Controllers\ProductController::class, 'update'])->name('product.update');
+            Route::get('product/delete{product}', [App\Http\Controllers\ProductController::class, 'destroy'])->name('product.destroy');
         });
 
 });

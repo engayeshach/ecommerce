@@ -51,6 +51,44 @@
                 {{-- <span class="badge badge-info right">6</span> --}}
               </p>
             </a>
+            <ul class="nav nav-treeview" style="display: none;">
+                <li class="nav-item">
+                <a href="{{route('category.index')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>{{__('View Categories')}}</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a href="{{route('category.create')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>{{__('Add Categories')}}</p>
+                </a>
+                </li>
+                </ul>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('category.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                {{__('Products')}}
+                <i class="fas fa-angle-left right"></i>
+                {{-- <span class="badge badge-info right">6</span> --}}
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+                <li class="nav-item">
+                <a href="{{route('product.index')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>{{__('View Products')}}</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a href="{{route('product.create')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>{{__('Add Product')}}</p>
+                </a>
+                </li>
+                </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
